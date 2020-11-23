@@ -43,7 +43,7 @@ public class LoginDAO {
 					loginMember.setAddr(rs.getString("addr"));
 					loginMember.setAge(rs.getInt("age"));
 					loginMember.setEmail(rs.getString("email"));
-					loginMember.setGender(rs.getNString("gender"));
+					loginMember.setGender(rs.getString("gender"));
 					loginMember.setId(rs.getString("id"));
 					loginMember.setName(rs.getString("name"));
 					loginMember.setNation(rs.getString("nation"));
