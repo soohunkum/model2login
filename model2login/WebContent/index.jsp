@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "vo.Member" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +9,17 @@
 </head>
 <body>
 <% 
-	String id = (String)session.getAttribute("id");
-
-	if(id == null) {
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	if(loginMember == null) {
 %>
-	<a href = "loginForm.html">로그인</a>
+	<a href = "login.do">로그인</a>
 	
 <% 
-	}
-	else{ 
+	}else{ 
+	out.println("<h2>"+ loginMember.getId() + "님이 접속하였습니다</h2>");
 %>
-	<a href = "logout">로그아웃</a>
+	
+	<a href = "logout.do">로그아웃</a>
 <% 
 	}
 %>

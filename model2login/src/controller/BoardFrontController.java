@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import action.joinAction;
 import action.loginAction;
 import vo.ActionForward;
 
@@ -37,23 +38,32 @@ public class BoardFrontController extends HttpServlet {
 		if(command.equals("/index.do")) {
 			forward = new ActionForward();
 			forward.setPath("/index.jsp");
-		} else if(command.equals("/login.do")){
+		} else if(command.equals("/loginPro.do")){
 			action = new loginAction();
 			try {
 			forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/loginForm.do")){
+		} else if(command.equals("/login.do")){
 			forward = new ActionForward();
 			forward.setPath("loginForm.html");
 		} else if(command.equals("/logout.do")){
 			HttpSession session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("index.do");
-		
+		} else if(command.equals("/join.do")){
+			forward = new ActionForward();
+			forward.setPath("joinForm.html");
+		} else if(command.equals("/joinPro.do")){
+			action = new joinAction();
+			try {
+				forward = action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
+		}
 		if(forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
@@ -63,4 +73,4 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}
 	}
-}
+	}
