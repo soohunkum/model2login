@@ -24,7 +24,7 @@ public class joinAction implements Action{
 		String name = request.getParameter("name");
 		String addr = request.getParameter("addr");
 		int age = Integer.parseInt(request.getParameter("age"));
-		String nation = request.getParameter("nateion");
+		String nation = request.getParameter("nation");
 		String gender = request.getParameter("gender");
 	    String email = request.getParameter("email");
 	    member.setAddr(addr);
